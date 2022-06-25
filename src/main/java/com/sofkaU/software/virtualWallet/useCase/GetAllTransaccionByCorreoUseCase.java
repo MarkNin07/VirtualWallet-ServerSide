@@ -9,19 +9,23 @@ import reactor.core.publisher.Flux;
 
 @Service
 @Validated
-public class GetAllTransaccionUseCase {
+public class GetAllTransaccionByCorreoUseCase {
 
     private final TransaccionRepository transaccionRepository;
     private final Mapper mapper;
 
-    public GetAllTransaccionUseCase(TransaccionRepository transaccionRepository, Mapper mapper) {
+    public GetAllTransaccionByCorreoUseCase(TransaccionRepository transaccionRepository, Mapper mapper) {
         this.transaccionRepository = transaccionRepository;
         this.mapper = mapper;
     }
 
-    public Flux<TransaccionDTO> getAllTransaccion() {
-        return transaccionRepository.findAll()
+    public Flux<TransaccionDTO> getAllTransaccionEgreso(String correo) {
+        return transaccionRepository.findByCorreoOrigen(correo)
                 .map(mapper.mapEntityToTransaccion());
     }
 
+    public Flux<TransaccionDTO> getAllTransaccionIngreso(String correo) {
+        return transaccionRepository.findByCorreoDestino(correo)
+                .map(mapper.mapEntityToTransaccion());
+    }
 }

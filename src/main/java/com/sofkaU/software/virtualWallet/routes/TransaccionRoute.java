@@ -2,6 +2,7 @@ package com.sofkaU.software.virtualWallet.routes;
 
 import com.sofkaU.software.virtualWallet.dto.TransaccionDTO;
 import com.sofkaU.software.virtualWallet.useCase.CreateTransaccionUseCase;
+import com.sofkaU.software.virtualWallet.useCase.GetAllTransaccionByCorreoUseCase;
 import com.sofkaU.software.virtualWallet.useCase.GetAllTransaccionUseCase;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -40,6 +41,26 @@ public class TransaccionRoute {
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(getAllTransaccionUseCase.getAllTransaccion(), TransaccionDTO.class))
+        );
+    }
+
+    @Bean
+    /*    annotattion swagger*/
+    public RouterFunction<ServerResponse> getAllTransaccionEgresoByCorreo(GetAllTransaccionByCorreoUseCase getAllTransaccionByCorreo) {
+        return route(GET("/getAllTransaccionEgreso/user/{correo}"),
+                request -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(getAllTransaccionByCorreo.getAllTransaccionEgreso(request.pathVariable("correo")), TransaccionDTO.class))
+        );
+    }
+
+    @Bean
+    /*    annotattion swagger*/
+    public RouterFunction<ServerResponse> getAllTransaccionIngresoByCorreo(GetAllTransaccionByCorreoUseCase getAllTransaccionByCorreo) {
+        return route(GET("/getAllTransaccionIngreso/user/{correo}"),
+                request -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(getAllTransaccionByCorreo.getAllTransaccionIngreso(request.pathVariable("correo")), TransaccionDTO.class))
         );
     }
 }

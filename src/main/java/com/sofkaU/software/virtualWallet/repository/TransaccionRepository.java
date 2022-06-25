@@ -8,6 +8,6 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface TransaccionRepository extends ReactiveCrudRepository<Transaccion, String> {
 
-/*    Flux<Transaccion> findallByCorreoOrigen(String correoOrigen);
-    Flux<Transaccion> findallByCorreoDestino(String correoDestino);*/
+    Flux<Transaccion> findByCorreoOrigen(String correoOrigen);
+    Flux<Transaccion> findByCorreoDestino(String correoDestino);
 }
