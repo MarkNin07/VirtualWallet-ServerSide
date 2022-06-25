@@ -11,23 +11,27 @@ import reactor.core.publisher.Mono;
 import javax.validation.Valid;
 
 @Service
-@Validated
-public class PostUsuarioUseCase {
+public class PutUsuarioUseCase {
 
     private final iUsuarioRepository repository;
     private final UsuarioMapper mapper;
     private final BcryptMapper bcrypt;
 
-    public PostUsuarioUseCase(iUsuarioRepository repository, UsuarioMapper mapper, BcryptMapper bcrypt) {
+    public PutUsuarioUseCase(iUsuarioRepository repository, UsuarioMapper mapper, BcryptMapper bcrypt) {
         this.repository = repository;
         this.mapper = mapper;
         this.bcrypt = bcrypt;
     }
 
-    public Mono<UsuarioDto> createUsuario(@Valid UsuarioDto dto){
-        dto.setContrasena(bcrypt.encode(dto.getContrasena()));
-        return repository.save(mapper.dtoToEntity(dto))
-                .map(mapper::entityToDto);
+    public Mono<UsuarioDto> updateUsuarioUseCase(UsuarioDto dto){
 
+        return repository.findByCorreo(dto.getCorreo())
+                .switchIfEmpty(Mono.error(()-> new IllegalStateException("Usuario con correo " + dto.getCorreo() + " no encontrado")))
+                .flatMap(userDto -> repository.save(mapper.dtoToEntity(dto)))
+                .map(entity ->{
+                    UsuarioDto usuarioDto = mapper.entityToDto(entity);
+                    usuarioDto.setContrasena("Forbidden");
+                    return usuarioDto;
+                });
     }
 }
