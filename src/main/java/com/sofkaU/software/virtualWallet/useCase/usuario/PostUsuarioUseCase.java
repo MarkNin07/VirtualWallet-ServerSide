@@ -24,10 +24,15 @@ public class PostUsuarioUseCase {
         this.bcrypt = bcrypt;
     }
 
-    public Mono<UsuarioDto> createUsuario(@Valid UsuarioDto dto){
+    public Mono<UsuarioDto> createUsuario(@Valid UsuarioDto dto) {
         dto.setContrasena(bcrypt.encode(dto.getContrasena()));
         return repository.save(mapper.dtoToEntity(dto))
-                .map(mapper::entityToDto);
+                .map(entity -> {
+                    UsuarioDto usuarioDto = mapper.entityToDto(entity);
+                    usuarioDto.setContrasena("Forbidden");
+                    return usuarioDto;
 
+
+                });
     }
 }

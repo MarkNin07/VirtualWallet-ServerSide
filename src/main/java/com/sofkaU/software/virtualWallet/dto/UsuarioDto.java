@@ -12,11 +12,11 @@ import javax.validation.constraints.NotBlank;
 public class UsuarioDto {
 
         private String id;
-        @NotBlank
+        @NotBlank(message = "Por favor ingrese su nombre")
         private String nombre;
-        @NotBlank
+        @NotBlank(message = "Por favor ingrese su correo")
         private String correo;
-        @NotBlank
+        @NotBlank(message = "Por favor ingrese una contraseña")
         private String contrasena;
         private String rol;
         private boolean estaActivo;
