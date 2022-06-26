@@ -68,7 +68,7 @@ public class TransaccionRoute {
 
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAllTransaccionEgresoByCorreo", summary = "Find all transaccion egrees in Wallet by user (email)", tags = {"Transaccion"},
-            parameters = {@Parameter(in = ParameterIn.PATH, name = "email", description = "account mail")},
+            parameters = {@Parameter(in = ParameterIn.PATH, name = "correo", description = "account mail")},
             responses = {@ApiResponse(responseCode = "200", description = "successful operation",
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = TransaccionDTO.class)))),
                     @ApiResponse(responseCode = "400", description = "Invalid action"),
@@ -83,7 +83,7 @@ public class TransaccionRoute {
 
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAllTransaccionIngresoByCorreo", summary = "Find all transaccion ingrees in Wallet by user (email)", tags = {"Transaccion"},
-            parameters = {@Parameter(in = ParameterIn.PATH, name = "email", description = "account mail")},
+            parameters = {@Parameter(in = ParameterIn.PATH, name = "correo", description = "account mail")},
             responses = {@ApiResponse(responseCode = "200", description = "successful operation",
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = TransaccionDTO.class)))),
                     @ApiResponse(responseCode = "400", description = "Invalid action"),

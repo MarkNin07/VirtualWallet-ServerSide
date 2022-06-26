@@ -18,6 +18,6 @@ public class TransaccionDTO {
     private String correoOrigen;
     @NotBlank(message = "Campo Correo Destino obligatorio")
     private String correoDestino;
-    @NotBlank(message = "Campo Valor obligatorio")
+
     private Long valor;
 }
