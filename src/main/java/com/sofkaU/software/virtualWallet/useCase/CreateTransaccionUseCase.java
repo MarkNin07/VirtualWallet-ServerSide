@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 @Service
 @Validated
 public class CreateTransaccionUseCase implements IcreateTransaccion{
@@ -20,7 +22,7 @@ public class CreateTransaccionUseCase implements IcreateTransaccion{
     }
 
     @Override
-    public Mono<TransaccionDTO> apply(TransaccionDTO transaccionDTO) {
+    public Mono<TransaccionDTO> apply(@Valid TransaccionDTO transaccionDTO) {
         return transaccionRepository
                 .save(mapper.mapperToTransaccion(transaccionDTO.getId())
                         .apply(transaccionDTO))

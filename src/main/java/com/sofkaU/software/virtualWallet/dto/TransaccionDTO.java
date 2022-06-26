@@ -12,12 +12,12 @@ import javax.validation.constraints.NotBlank;
 public class TransaccionDTO {
 
     private String id;
-
+    @NotBlank(message = "Campo Fecha obligatorio")
     private String fecha;
-
+    @NotBlank(message = "Campo Correo Origen obligatorio")
     private String correoOrigen;
-
+    @NotBlank(message = "Campo Correo Destino obligatorio")
     private String correoDestino;
-
+    @NotBlank(message = "Campo Valor obligatorio")
     private Long valor;
 }
