@@ -1,7 +1,7 @@
-package com.sofkaU.software.virtualWallet.routes;
+package com.sofkaU.software.virtualWallet.routes.cuenta;
 
 import com.sofkaU.software.virtualWallet.dto.CuentaDto;
-import com.sofkaU.software.virtualWallet.useCase.UpdateCuentaUseCase;
+import com.sofkaU.software.virtualWallet.useCase.cuenta.UpdateCuentaUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;

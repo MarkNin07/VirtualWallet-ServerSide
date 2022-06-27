@@ -1,4 +1,4 @@
-package com.sofkaU.software.virtualWallet.useCase;
+package com.sofkaU.software.virtualWallet.useCase.cuenta;
 
 import com.sofkaU.software.virtualWallet.dto.CuentaDto;
 import com.sofkaU.software.virtualWallet.mapper.CuentaMapper;

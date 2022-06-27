@@ -1,4 +1,4 @@
-package com.sofkaU.software.virtualWallet.routes;
+package com.sofkaU.software.virtualWallet.routes.usuario;
 
 import com.sofkaU.software.virtualWallet.useCase.usuario.FindByCorreoUseCase;
 import org.springframework.context.annotation.Bean;

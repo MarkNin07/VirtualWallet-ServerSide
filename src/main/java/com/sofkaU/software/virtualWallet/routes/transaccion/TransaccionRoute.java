@@ -1,9 +1,9 @@
-package com.sofkaU.software.virtualWallet.routes;
+package com.sofkaU.software.virtualWallet.routes.transaccion;
 
 import com.sofkaU.software.virtualWallet.dto.TransaccionDTO;
-import com.sofkaU.software.virtualWallet.useCase.CreateTransaccionUseCase;
-import com.sofkaU.software.virtualWallet.useCase.GetAllTransaccionByCorreoUseCase;
-import com.sofkaU.software.virtualWallet.useCase.GetAllTransaccionUseCase;
+import com.sofkaU.software.virtualWallet.useCase.transaccion.CreateTransaccionUseCase;
+import com.sofkaU.software.virtualWallet.useCase.transaccion.GetAllTransaccionByCorreoUseCase;
+import com.sofkaU.software.virtualWallet.useCase.transaccion.GetAllTransaccionUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;

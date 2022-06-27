@@ -1,4 +1,4 @@
-package com.sofkaU.software.virtualWallet.routes;
+package com.sofkaU.software.virtualWallet.routes.usuario;
 
 import com.sofkaU.software.virtualWallet.dto.UsuarioDto;
 import com.sofkaU.software.virtualWallet.useCase.usuario.GetAllUsuariosUseCase;
