@@ -36,7 +36,7 @@ public class TransaccionRoute {
             requestBody = @RequestBody(required = true, description = "Enter Request body as Json Object",
                     content = @Content(schema = @Schema(implementation = TransaccionDTO.class))),
             responses = {
-                    @ApiResponse(responseCode = "200", description = "successful operation return question id", content = @Content(schema = @Schema(implementation = String.class))),
+                    @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = String.class))),
                     @ApiResponse(responseCode = "400", description = "Bad Request"),
                     @ApiResponse(responseCode = "404", description = "Server not found")}))
     public RouterFunction<ServerResponse> createTransaccion(CreateTransaccionUseCase createTransaccionUseCase) {
@@ -56,8 +56,8 @@ public class TransaccionRoute {
             /*parameters = {@Parameter(in = ParameterIn.PATH, name = "id", description = "User Id")},*/
             responses = {@ApiResponse(responseCode = "200", description = "successful operation",
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = TransaccionDTO.class)))),
-                    @ApiResponse(responseCode = "400", description = "Invalid action"),
-                    @ApiResponse(responseCode = "404", description = "Transaccions not found")}))
+                    @ApiResponse(responseCode = "400", description = "Bad Request"),
+                    @ApiResponse(responseCode = "404", description = "Server not found")}))
     public RouterFunction<ServerResponse> getAllTransaccion(GetAllTransaccionUseCase getAllTransaccionUseCase) {
         return route(GET("/getAllTransaccion"),
                 request -> ServerResponse.ok()
@@ -71,8 +71,8 @@ public class TransaccionRoute {
             parameters = {@Parameter(in = ParameterIn.PATH, name = "correo", description = "account mail")},
             responses = {@ApiResponse(responseCode = "200", description = "successful operation",
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = TransaccionDTO.class)))),
-                    @ApiResponse(responseCode = "400", description = "Invalid action"),
-                    @ApiResponse(responseCode = "404", description = "Transaccions not found")}))
+                    @ApiResponse(responseCode = "400", description = "Bad Request"),
+                    @ApiResponse(responseCode = "404", description = "Server not found")}))
     public RouterFunction<ServerResponse> getAllTransaccionEgresoByCorreo(GetAllTransaccionByCorreoUseCase getAllTransaccionByCorreo) {
         return route(GET("/getAllTransaccionEgreso/user/{correo}"),
                 request -> ServerResponse.ok()
@@ -86,8 +86,8 @@ public class TransaccionRoute {
             parameters = {@Parameter(in = ParameterIn.PATH, name = "correo", description = "account mail")},
             responses = {@ApiResponse(responseCode = "200", description = "successful operation",
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = TransaccionDTO.class)))),
-                    @ApiResponse(responseCode = "400", description = "Invalid action"),
-                    @ApiResponse(responseCode = "404", description = "Transaccions not found")}))
+                    @ApiResponse(responseCode = "400", description = "Bad Request"),
+                    @ApiResponse(responseCode = "404", description = "Server not found")}))
     public RouterFunction<ServerResponse> getAllTransaccionIngresoByCorreo(GetAllTransaccionByCorreoUseCase getAllTransaccionByCorreo) {
         return route(GET("/getAllTransaccionIngreso/user/{correo}"),
                 request -> ServerResponse.ok()

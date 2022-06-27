@@ -12,7 +12,6 @@ import reactor.core.publisher.Flux;
 public class GetAllCuentasUseCase {
 
     private final ICuentaRepository cuentaRepo;
-
     private final CuentaMapper mapper;
 
     public Flux<CuentaDto> todasLasCuentas(){
