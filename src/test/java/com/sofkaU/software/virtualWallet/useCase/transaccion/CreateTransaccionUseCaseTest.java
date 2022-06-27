@@ -43,12 +43,20 @@ class CreateTransaccionUseCaseTest {
         transaccion.setCorreoDestino("correoDestino@correo.com");
         transaccion.setValor(1000L);
 
+        var transaccionDTO = new TransaccionDTO();
+
+        transaccionDTO.setId("qwerty");
+        transaccionDTO.setFecha("27-06-2022");
+        transaccionDTO.setCorreoOrigen("correoOrigen@correo.com");
+        transaccionDTO.setCorreoDestino("correoDestino@correo.com");
+        transaccionDTO.setValor(1000L);
+
         Mockito.when(transaccionRepository.save(transaccion)).thenReturn(Mono.just(transaccion));
 
-        StepVerifier.create(createTransaccionUseCase.apply(mapper.mapEntityToTransaccion().apply(transaccion)))
-                .expectNext(mapper.mapEntityToTransaccion().apply(transaccion)).verifyComplete();
+        StepVerifier.create(createTransaccionUseCase.apply(transaccionDTO))
+                .expectNext(transaccionDTO).verifyComplete();
 
-        Mockito.verify(transaccionRepository).save(transaccion);
+        Mockito.verify(transaccionRepository.save(transaccion));
     }
 
 }
