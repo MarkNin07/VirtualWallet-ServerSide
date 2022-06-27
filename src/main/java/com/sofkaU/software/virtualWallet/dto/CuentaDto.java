@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CuentaDto {
 
-    private String cuentaId;
+    private String id;
 
     private String correoUsuario;
 

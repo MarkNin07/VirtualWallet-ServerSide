@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Cuenta {
 
     @Id
-    private String cuentaId;
+    private String id;
 
     private String correoUsuario;
 
