@@ -29,7 +29,7 @@ public class PostUsuarioUseCase {
         return repository.save(mapper.dtoToEntity(dto))
                 .map(entity -> {
                     UsuarioDto usuarioDto = mapper.entityToDto(entity);
-                    usuarioDto.setContrasena("Forbidden");
+                    usuarioDto.setContrasena("Hidden");
                     return usuarioDto;
 
 

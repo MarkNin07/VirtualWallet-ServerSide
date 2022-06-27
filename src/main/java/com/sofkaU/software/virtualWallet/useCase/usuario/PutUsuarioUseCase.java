@@ -24,7 +24,7 @@ public class PutUsuarioUseCase {
     }
 
     public Mono<UsuarioDto> updateUsuarioUseCase(UsuarioDto dto){
-
+        dto.setContrasena(bcrypt.encode(dto.getContrasena()));
         return repository.findByCorreo(dto.getCorreo())
                 .switchIfEmpty(Mono.error(()-> new IllegalStateException("Usuario con correo " + dto.getCorreo() + " no encontrado")))
                 .flatMap(userDto -> repository.save(mapper.dtoToEntity(dto)))

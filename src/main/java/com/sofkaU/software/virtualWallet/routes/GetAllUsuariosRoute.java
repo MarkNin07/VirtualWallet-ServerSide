@@ -21,7 +21,7 @@ public class GetAllUsuariosRoute {
 
     @Bean
     public RouterFunction<ServerResponse> allUserRoute(GetAllUsuariosUseCase useCase){
-        return route(GET("/getall/users/"),
+        return route(GET("/getall/users"),
                 request -> ServerResponse.status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromProducer(useCase.getAllUsers(), UsuarioDto.class)));

@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 @Data
 public class UsuarioDto {
@@ -22,4 +23,16 @@ public class UsuarioDto {
         private boolean estaActivo;
         private boolean correoVerificado;
 
+        @Override
+        public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                UsuarioDto that = (UsuarioDto) o;
+                return estaActivo == that.estaActivo && correoVerificado == that.correoVerificado && Objects.equals(id, that.id) && Objects.equals(nombre, that.nombre) && Objects.equals(correo, that.correo) && Objects.equals(rol, that.rol);
+        }
+
+        @Override
+        public int hashCode() {
+                return Objects.hash(id, nombre, correo, rol, estaActivo, correoVerificado);
+        }
 }
