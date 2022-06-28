@@ -1,12 +1,10 @@
 package com.sofkaU.software.virtualWallet.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Objects;
 
 @Data
@@ -16,8 +14,11 @@ public class UsuarioDto {
         @NotBlank(message = "Por favor ingrese su nombre")
         private String nombre;
         @NotBlank(message = "Por favor ingrese su correo")
+        @Indexed(unique = true)
+        @Pattern(regexp = "^[a-zA-Z0-9_!#$%&'\\*+/=?{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "Este campo no coincide con un formato de correo electronico valido")
         private String correo;
         @NotBlank(message = "Por favor ingrese una contraseña")
+        @Pattern(regexp ="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]{2}).{8,}$")
         private String contrasena;
         private String rol;
         private boolean estaActivo;

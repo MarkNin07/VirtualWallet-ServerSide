@@ -3,13 +3,15 @@ package com.sofkaU.software.virtualWallet.mapper;
 
 import com.sofkaU.software.virtualWallet.collections.Cuenta;
 import com.sofkaU.software.virtualWallet.dto.CuentaDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CuentaMapper {
 
     public Cuenta toCuentaCollection(CuentaDto cuentaDto){
         Cuenta cuenta = new Cuenta();
 
-        cuenta.setCuentaId(cuentaDto.getCuentaId());
+        cuenta.setCuentaId(cuentaDto.getId());
         cuenta.setCorreoUsuario(cuentaDto.getCorreoUsuario());
         cuenta.setMonto(cuentaDto.getMonto());
 
@@ -20,7 +22,7 @@ public class CuentaMapper {
     public CuentaDto toCuentaDto(Cuenta cuenta){
         CuentaDto cuentaDto = new CuentaDto();
 
-        cuentaDto.setCuentaId(cuenta.getCuentaId());
+        cuentaDto.setId(cuenta.getCuentaId());
         cuentaDto.setCorreoUsuario(cuenta.getCorreoUsuario());
         cuentaDto.setMonto(cuenta.getMonto());
 
