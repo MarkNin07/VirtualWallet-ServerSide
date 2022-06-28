@@ -4,7 +4,6 @@ import com.sofkaU.software.virtualWallet.collections.Transaccion;
 import com.sofkaU.software.virtualWallet.dto.TransaccionDTO;
 import com.sofkaU.software.virtualWallet.mapper.Mapper;
 import com.sofkaU.software.virtualWallet.repository.TransaccionRepository;
-import com.sofkaU.software.virtualWallet.useCase.CreateTransaccionUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,7 +55,7 @@ class CreateTransaccionUseCaseTest {
         StepVerifier.create(createTransaccionUseCase.apply(transaccionDTO))
                 .expectNext(transaccionDTO).verifyComplete();
 
-        Mockito.verify(transaccionRepository.save(transaccion));
+        Mockito.verify(transaccionRepository).save(transaccion);
     }
 
 }

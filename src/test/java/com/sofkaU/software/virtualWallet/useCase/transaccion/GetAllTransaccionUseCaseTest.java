@@ -3,7 +3,6 @@ package com.sofkaU.software.virtualWallet.useCase.transaccion;
 import com.sofkaU.software.virtualWallet.collections.Transaccion;
 import com.sofkaU.software.virtualWallet.mapper.Mapper;
 import com.sofkaU.software.virtualWallet.repository.TransaccionRepository;
-import com.sofkaU.software.virtualWallet.useCase.GetAllTransaccionUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
