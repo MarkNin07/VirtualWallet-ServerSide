@@ -1,8 +1,15 @@
-package com.sofkaU.software.virtualWallet.routes;
+package com.sofkaU.software.virtualWallet.routes.cuenta;
 
 
 import com.sofkaU.software.virtualWallet.dto.CuentaDto;
-import com.sofkaU.software.virtualWallet.useCase.PostCuentaUseCase;
+import com.sofkaU.software.virtualWallet.dto.TransaccionDTO;
+import com.sofkaU.software.virtualWallet.useCase.cuenta.PostCuentaUseCase;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springdoc.core.annotations.RouterOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +24,14 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class PostCuentaRoute {
 
     @Bean
+    @RouterOperation(operation = @Operation(operationId = "createCuenta", summary = "Creación de una cuenta", tags = {"Cuenta"},
+            requestBody = @RequestBody(required = true, description = "Enter Request body as Json Object",
+                    content = @Content(schema = @Schema(implementation = TransaccionDTO.class))),
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = String.class))),
+                    @ApiResponse(responseCode = "400", description = "Bad Request"),
+                    @ApiResponse(responseCode = "404", description = "Server not found")}))
+
     public RouterFunction<ServerResponse> crearCuenta(PostCuentaUseCase postCuenta){
         return route(POST("/create/cuenta").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(CuentaDto.class)
