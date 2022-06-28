@@ -25,14 +25,12 @@ public class PostUsuarioUseCase {
     }
 
     public Mono<UsuarioDto> createUsuario(@Valid UsuarioDto dto) {
-        dto.setContrasena(bcrypt.encode(dto.getContrasena()));
-        return repository.save(mapper.dtoToEntity(dto))
-                .map(entity -> {
-                    UsuarioDto usuarioDto = mapper.entityToDto(entity);
-                    usuarioDto.setContrasena("Hidden");
-                    return usuarioDto;
 
-
-                });
+        return repository.findByCorreo(dto.getCorreo()).flatMap(usuario -> Mono.error(new IllegalArgumentException("Correo ya existe")))
+                .then(repository.save(mapper.dtoToEntity(dto))
+                        .map(entity -> {
+                                UsuarioDto usuarioDto = mapper.entityToDto(entity);
+                                usuarioDto.setContrasena("Hidden");
+                                return usuarioDto;}));
     }
 }

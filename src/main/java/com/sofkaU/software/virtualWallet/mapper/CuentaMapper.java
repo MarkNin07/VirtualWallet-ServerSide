@@ -11,6 +11,7 @@ public class CuentaMapper {
     public Cuenta toCuentaCollection(CuentaDto cuentaDto){
         Cuenta cuenta = new Cuenta();
 
+        cuenta.setCuentaId(cuentaDto.getId());
         cuenta.setId(cuentaDto.getId());
         cuenta.setCorreoUsuario(cuentaDto.getCorreoUsuario());
         cuenta.setMonto(cuentaDto.getMonto());
@@ -21,7 +22,7 @@ public class CuentaMapper {
 
     public CuentaDto toCuentaDto(Cuenta cuenta){
         CuentaDto cuentaDto = new CuentaDto();
-
+        cuentaDto.setId(cuenta.getCuentaId());
         cuentaDto.setId(cuenta.getId());
         cuentaDto.setCorreoUsuario(cuenta.getCorreoUsuario());
         cuentaDto.setMonto(cuenta.getMonto());
