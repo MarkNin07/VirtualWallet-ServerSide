@@ -1,5 +1,11 @@
 package com.sofkaU.software.virtualWallet.dto;
 
+/**
+ * Esta clase TransaccionDTO, como su nombre lo expresa, contiene todas las anotaciones y validaciones que
+ * Permiten usarla como un DTO frente al usuario en el momento de recibir los datos para generar una transacción
+ * @author: William Franco
+ * */
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

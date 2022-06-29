@@ -1,5 +1,11 @@
 package com.sofkaU.software.virtualWallet.dto;
 
+/**
+ * Esta clase CuentaDto, como su nombre lo expresa, contiene todas las anotaciones y validaciones que
+ * Permiten usarla como un DTO para recibir toda la información proveniente del usuario.
+ * @author: Maria Lamilla
+ * */
+
 import lombok.Data;
 import org.springframework.data.mongodb.core.index.Indexed;
 
