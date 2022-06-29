@@ -1,5 +1,10 @@
 package com.sofkaU.software.virtualWallet.useCase.usuario;
 
+/**
+ * La clase CreateTransaccionUseCase es el caso de uso que permite crear un usuario
+ * @author: Maria Lamilla
+ * */
+
 import com.sofkaU.software.virtualWallet.bcrypt.BcryptMapper;
 import com.sofkaU.software.virtualWallet.dto.UsuarioDto;
 import com.sofkaU.software.virtualWallet.mapper.UsuarioMapper;
@@ -23,6 +28,12 @@ public class PostUsuarioUseCase {
         this.mapper = mapper;
         this.bcrypt = bcrypt;
     }
+
+    /**
+     *el método createUsuario permite la creación de un usuario
+     * @param dto
+     * @return un Mono de un usuario luego de realizar la conversión de colección a DTO
+     */
 
     public Mono<UsuarioDto> createUsuario(@Valid UsuarioDto dto) {
 

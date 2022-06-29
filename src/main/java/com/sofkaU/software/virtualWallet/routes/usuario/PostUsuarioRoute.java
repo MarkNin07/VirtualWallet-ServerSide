@@ -23,6 +23,12 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class PostUsuarioRoute {
 
+    /**
+     * método postUsuario recibe su correspondiente UseCase de usuario para crear un usuario
+     * @param useCase
+     * @return una respuesta del servidor luego de aplanar toda la información entrante para convertirla en DTO
+     */
+
     @Bean
     @RouterOperation(operation = @Operation(operationId = "createUsuario", summary = "crear un nuevo Usuario", tags = {"Usuario"},
             requestBody = @RequestBody(required = true, description = "Ingresar el cuerpo del objeto en formato JSON",

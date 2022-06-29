@@ -1,5 +1,10 @@
 package com.sofkaU.software.virtualWallet.routes.usuario;
 
+/**
+ * Clase allUserRoute retorna una respuesta por parte del servidor. En este caso, la respuesta es OK y
+ * muestra todas los usuarios en la URL destinada para dicha acción
+ */
+
 import com.sofkaU.software.virtualWallet.dto.TransaccionDTO;
 import com.sofkaU.software.virtualWallet.dto.UsuarioDto;
 import com.sofkaU.software.virtualWallet.useCase.usuario.GetAllUsuariosUseCase;

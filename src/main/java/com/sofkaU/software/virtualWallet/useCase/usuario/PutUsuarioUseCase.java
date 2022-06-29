@@ -23,6 +23,13 @@ public class PutUsuarioUseCase {
         this.bcrypt = bcrypt;
     }
 
+    /**
+     * Método para actualizar el usuario
+     * @param dto
+     * @return un Mono después de haber filtrado la información por correo electrónico
+     * Y hacer la conversión a un DTO
+     */
+
     public Mono<UsuarioDto> updateUsuarioUseCase(UsuarioDto dto){
 
         dto.setContrasena(bcrypt.encode(dto.getContrasena()));

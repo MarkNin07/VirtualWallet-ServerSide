@@ -1,5 +1,11 @@
 package com.sofkaU.software.virtualWallet.mapper;
 
+/**
+ * Esta clase UsuarioMapper permite realizar los cambios entre la colección usuario y su correspondiente DTO
+ * para el recibimiento y/o envío de información de los datos del usuario
+ * @author: Maria Lamilla
+ * */
+
 import com.sofkaU.software.virtualWallet.collections.Usuario;
 import com.sofkaU.software.virtualWallet.dto.UsuarioDto;
 import org.springframework.stereotype.Component;

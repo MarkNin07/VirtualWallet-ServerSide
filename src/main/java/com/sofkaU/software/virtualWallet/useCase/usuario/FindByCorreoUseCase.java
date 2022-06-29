@@ -17,6 +17,13 @@ public class FindByCorreoUseCase {
         this.mapper = mapper;
     }
 
+    /**
+     * Método para buscar usuario por su correo electrónico
+     * @param correo
+     * @return un Mono de usuario luego de haber sido buscado por correo electrónico. Si es encontrado,
+     * dicha información es convertida a DTO para ser visualizada por el usuario
+     */
+
     public Mono<UsuarioDto> findByCorreo(String correo){
 
         return repository.findByCorreo(correo)

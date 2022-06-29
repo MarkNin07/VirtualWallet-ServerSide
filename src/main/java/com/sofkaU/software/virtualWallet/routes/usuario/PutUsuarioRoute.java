@@ -22,6 +22,14 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class PutUsuarioRoute {
 
+    /**
+     *
+     * @param useCase
+     * @return una respuesta del servidor y aplana la información entrante que luego servirá
+     * para actualizar los datos del usuario. Dicha información es convertida en DTO. Finalmente,
+     * de no hallarse el usuario a editar, retorna como respuesta del servidor un error 400
+     */
+
     @Bean
     @RouterOperation(operation = @Operation(operationId = "updateUsuario", summary = "actualizar un usuario existente", tags = {"Usuario"},
             requestBody = @RequestBody(required = true, description = "Ingresar el cuerpo del objeto en formato JSON",

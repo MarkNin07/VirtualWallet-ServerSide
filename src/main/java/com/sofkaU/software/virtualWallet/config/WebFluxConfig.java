@@ -1,5 +1,10 @@
 package com.sofkaU.software.virtualWallet.config;
 
+/**
+ * Esta clase WebFluxConfig define métodos callback para personalizar la configuración de las aplicaciones WebFlux
+ * @author: Maria Lamilla
+ * */
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.CorsRegistry;

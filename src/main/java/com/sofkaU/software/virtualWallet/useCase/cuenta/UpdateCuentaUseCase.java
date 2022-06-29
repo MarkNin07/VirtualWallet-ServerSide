@@ -15,6 +15,12 @@ public class UpdateCuentaUseCase {
 
     private final CuentaMapper mapper;
 
+    /**
+     * Método para actualizar la Cuenta
+     * @param cuentaDto
+     * @return un Mono luego de guardar cada dato de entrada como un DTO
+     */
+
     public Mono<CuentaDto> updateCuenta(CuentaDto cuentaDto){
         return cuentaRepo.save(mapper.toCuentaCollection(cuentaDto))
                 .map(mapper::toCuentaDto);
