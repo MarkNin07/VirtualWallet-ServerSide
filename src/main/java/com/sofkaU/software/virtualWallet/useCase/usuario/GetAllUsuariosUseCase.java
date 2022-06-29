@@ -1,5 +1,11 @@
 package com.sofkaU.software.virtualWallet.useCase.usuario;
 
+/**
+ * Esta clase GetAllCuentasUseCase es el caso de uso que permite mostrar en pantalla todas los usuarios
+ * que han sido creadas
+ * @author: Maria Lamilla
+ * */
+
 import com.sofkaU.software.virtualWallet.collections.Usuario;
 import com.sofkaU.software.virtualWallet.dto.UsuarioDto;
 import com.sofkaU.software.virtualWallet.mapper.UsuarioMapper;
@@ -19,6 +25,11 @@ public class GetAllUsuariosUseCase {
         this.repository = repository;
         this.mapper = mapper;
     }
+
+    /**
+     * El método getAllUsers retorna un Flux de DTO con todos los usuarios
+     * luego de convertir cada colección de usuario en DTO
+     * */
 
     public Flux<UsuarioDto> getAllUsers(){
         return repository.findAll()

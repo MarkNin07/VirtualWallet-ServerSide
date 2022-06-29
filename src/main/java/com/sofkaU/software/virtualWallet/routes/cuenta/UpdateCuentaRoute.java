@@ -22,6 +22,14 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class UpdateCuentaRoute {
 
+    /**
+     * método  actualizarCuenta recibe correspondiente UseCase
+     * @param updCuenta
+     * @return una respuesta del servidor y aplana la información entrante que luego servirá
+     * para actualizar los datos. Dicha información es convertida en DTO. Finalmente, de no hallarse el dato
+     * a editar, retorna como respuesta del servidor un error 400
+     */
+
     @Bean
     @RouterOperation(operation = @Operation(operationId = "updateCuenta", summary = "Actualización de una cuenta existe", tags = {"Cuenta"},
             requestBody = @RequestBody(required = true, description = "Enter Request body as Json Object",

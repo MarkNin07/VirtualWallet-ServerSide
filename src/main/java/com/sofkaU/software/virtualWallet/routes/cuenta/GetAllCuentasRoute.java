@@ -1,5 +1,9 @@
 package com.sofkaU.software.virtualWallet.routes.cuenta;
 
+/**
+ * Clase GetAllCuentasRoute retorna una respuesta por parte del servidor. En este caso, la respuesta es OK y
+ * muestra todas las cuentas si el usuario está en la URL destinada
+ */
 
 import com.sofkaU.software.virtualWallet.dto.CuentaDto;
 import com.sofkaU.software.virtualWallet.dto.TransaccionDTO;

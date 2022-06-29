@@ -1,5 +1,8 @@
 package com.sofkaU.software.virtualWallet.routes.cuenta;
 
+/**
+ * Clase PostCuentaRoute contiene el método con la URL para crear la cuenta
+ */
 
 import com.sofkaU.software.virtualWallet.dto.CuentaDto;
 import com.sofkaU.software.virtualWallet.dto.TransaccionDTO;
@@ -22,6 +25,12 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Service
 public class PostCuentaRoute {
+
+    /**
+     * El método crearCuenta recibe la clase UseCase
+     * @param postCuenta
+     * @return Mono después de aplanar la información entrante y convertirla en un DTO
+     */
 
     @Bean
     @RouterOperation(operation = @Operation(operationId = "createCuenta", summary = "Creación de una cuenta", tags = {"Cuenta"},
