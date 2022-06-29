@@ -1,5 +1,11 @@
 package com.sofkaU.software.virtualWallet.mapper;
 
+/**
+ * Esta clase CuentaMapper permite realizar los cambios entre la colección Cuenta y el DTO CuentaDto
+ * para el recibimiento y/o envío de información de los datos del usuario
+ * @author: Maria Lamilla
+ * */
+
 import com.sofkaU.software.virtualWallet.collections.Usuario;
 import com.sofkaU.software.virtualWallet.dto.UsuarioDto;
 import org.springframework.stereotype.Component;
