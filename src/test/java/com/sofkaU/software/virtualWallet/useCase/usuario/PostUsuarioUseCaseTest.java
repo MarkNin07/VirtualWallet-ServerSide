@@ -60,9 +60,8 @@ class PostUsuarioUseCaseTest {
         usuario.setEstaActivo(false);
         usuario.setCorreoVerificado(false);
 
-
-        Mockito.when(bcrypt.encode(dto.getContrasena()))
-                        .thenReturn("maria123");
+        Mockito.when(repository.findByCorreo("maria@gmail.com"))
+                .thenReturn(Mono.empty());
         Mockito.when(repository.save(usuario))
                 .thenReturn(Mono.just(usuario));
         Mono<UsuarioDto> usuarioDtoMono = useCase.createUsuario(dto);
@@ -72,9 +71,6 @@ class PostUsuarioUseCaseTest {
                 .verifyComplete();
 
         Mockito.verify(repository).save(usuario);
-
-
-
 
     }
 

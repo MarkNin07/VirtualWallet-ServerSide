@@ -12,13 +12,15 @@ public class UsuarioDto {
 
         private String id;
         @NotBlank(message = "Por favor ingrese su nombre")
+        @Pattern(regexp = "^[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+(\\s*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]*)*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+$", message = "Este campo no coincide con un formato de nombre valido")
         private String nombre;
         @NotBlank(message = "Por favor ingrese su correo")
         @Indexed(unique = true)
         @Pattern(regexp = "^[a-zA-Z0-9_!#$%&'\\*+/=?{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "Este campo no coincide con un formato de correo electronico valido")
         private String correo;
+
         @NotBlank(message = "Por favor ingrese una contraseña")
-        @Pattern(regexp ="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]{2}).{8,}$")
+        @Pattern(regexp ="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "formato de contrasenia invalido")
         private String contrasena;
         private String rol;
         private boolean estaActivo;
