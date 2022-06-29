@@ -31,6 +31,12 @@ public class TransaccionRoute {
 
     /*http://localhost:8080/webjars/swagger-ui/index.html#/*/
 
+    /**
+     * Crea una nueva transacción
+     *
+     * @param createTransaccionUseCase Esto es un uso de caso que será ejecutado cuando el endpoint es llamado.
+     * @return un RouterFunction que será usado para crear una nueva transacción.
+     */
     @Bean
     @RouterOperation(operation = @Operation(operationId = "createTransaccion", summary = "create a new Transaccion", tags = {"Transaccion"},
             requestBody = @RequestBody(required = true, description = "Enter Request body as Json Object",
@@ -51,6 +57,12 @@ public class TransaccionRoute {
         );
     }
 
+    /**
+     * Una función router que retorna una respuesta del servidor
+     *
+     * @param getAllTransaccionUseCase  Esto es un uso de caso que será ejecutado cuando el endpoint es invocado
+     * @return Un RouterFunction que es usado por la solicitud entrante en el método hanlder correspondiente
+     */
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAllTransaccion", summary = "Find all transaccion in Wallet", tags = {"Transaccion"},
             /*parameters = {@Parameter(in = ParameterIn.PATH, name = "id", description = "User Id")},*/
@@ -66,6 +78,13 @@ public class TransaccionRoute {
         );
     }
 
+    /**
+     * Una función que retorna una lista de todas las transacciones hechas por el  usuario
+     * A function that returns a list of all the transactions made by the user.
+     *
+     * @param getAllTransaccionByCorreo Este es el nombre del bean que será inyectado dentro de la función router.
+     * @return un RouterFunction que es usado por la solicitud entrante en el método hanlder correspondiente
+     */
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAllTransaccionEgresoByCorreo", summary = "Find all transaccion egrees in Wallet by user (email)", tags = {"Transaccion"},
             parameters = {@Parameter(in = ParameterIn.PATH, name = "correo", description = "account mail")},
@@ -81,6 +100,12 @@ public class TransaccionRoute {
         );
     }
 
+    /**
+     * Una función que retorna una lista de todas las transacciones hechas por el  usuario
+     *
+     * @param getAllTransaccionByCorreo  Este es el nombre del bean que será inyectado dentro de la función router.
+     * @return una lista de Transacciones DTO
+     */
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAllTransaccionIngresoByCorreo", summary = "Find all transaccion ingrees in Wallet by user (email)", tags = {"Transaccion"},
             parameters = {@Parameter(in = ParameterIn.PATH, name = "correo", description = "account mail")},
